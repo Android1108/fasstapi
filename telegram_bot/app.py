@@ -2,10 +2,13 @@ from typing import Optional
 
 from fastapi import FastAPI
 from pydantic import BaseModel
-
+from loguru import logger
+from telegram_bot.routers import webhook,cron
 import uvicorn
 
 app = FastAPI()
+app.include_router(webhook.router)
+app.include_router(cron.router)
 
 
 class Item(BaseModel):
@@ -29,5 +32,10 @@ def update_item(item: Item):
     return {"item_name": item.price}
 
 
+@app.on_event("startup")
+async def startup_event():
+    logger.info("Starting...")
+
+
 if __name__ == "__main__":
-  uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("telegram_bot.app:app", host="127.0.0.1", port=80, reload=True)

@@ -20,7 +20,7 @@ class RedisConfig:
 
 class Settings(BaseSettings):
     TELEGRAM_BOT_API_KEY: str = '1879579283:AAGatRkDvH6AdO6OtcOtUl6dn-n-gV9HYUs'
-    TELEGRAM_BOT_WEBHOOK_ENDPOINT: str="https://5823d1e74ee4.ngrok.io"
+    TELEGRAM_BOT_WEBHOOK_ENDPOINT: str="https://e5c5f19e3582.ngrok.io"
     REDIS_URL: str = "redis://:pcb97fb88ac53b92fc063ce9261657c6d9409316b3b9c8b867a935b57a6f52783@ec2-54-172-142-101.compute-1.amazonaws.com:9800"
     CACHE_TTL: int = 60 * 59
     PROXY: str='http://127.0.0.1:7890'

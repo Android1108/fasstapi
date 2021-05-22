@@ -22,6 +22,7 @@ def registered(func):
 
     return wrapper
 
+
 @dp.message_handler(commands=['weather'])
 @registered
 async def handle_weather(message: types.Message) -> None:
